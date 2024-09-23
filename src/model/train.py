@@ -25,7 +25,7 @@ def main(args):
     X_train, X_test, y_train, y_test = split_data(df)
 
     # train and evaluate model
-    model = train_model(args.reg_rate, X_train, y_train)
+    model = train_model(args.reg_rate, X_train, y_train) 
     eval_model(model, X_test, y_test)
 
 # define function to read the data
@@ -47,12 +47,13 @@ def split_data(df):
     return X_train, X_test, y_train, y_test
 
 # define function to train the model
-def train_model(reg_rate, y_train):
+def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
     model = LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
     return model
 
 # define function to evaluate the model
+    eval_model(model, X_test, y_test):
     # calculate accuracy
     y_hat = model.predict(X_test)
     acc = np.average(y_hat == y_test)
