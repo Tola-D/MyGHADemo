@@ -53,7 +53,7 @@ def train_model(reg_rate, X_train, X_test, y_train, y_test):
     return model
 
 # define function to evaluate the model
-    eval_model(model, X_test, y_test):
+def eval_model(model, X_test, y_test):
     # calculate accuracy
     y_hat = model.predict(X_test)
     acc = np.average(y_hat == y_test)
