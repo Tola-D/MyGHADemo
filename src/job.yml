@@ -1,5 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: "./src/model/"
+code: "./model/"
 command: >-
   python train.py
   --training-data ${{inputs.training_data}}/diabetes-dev.csv
@@ -7,7 +7,7 @@ command: >-
 inputs:
   training_data: 
     type: uri_folder
-    path: azureml://datastores/workspaceblobstore/paths/experimentation/data/
+    path: azureml://datastores/workspaceblobstore/paths/diabetes-dev-folder/
   reg_rate: 
     type: number 
     default: 0.01
