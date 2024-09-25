@@ -1,5 +1,4 @@
 l# Import libraries
-
 import argparse
 import glob
 import os
@@ -47,7 +46,7 @@ def split_data(df):
     return X_train, X_test, y_train, y_test
 
 # define function to train the model
-def train_model(reg_rate, X_train, X_test, y_train, y_test):
+def train_model(reg_rate, X_train, y_train):
     # train model
     model = LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
     return model
@@ -80,9 +79,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # add arguments
-    parser.add_argument("--training_data", dest='training_data',
+    parser.add_argument("--training-data", dest='training_data',
                         type=str)
-    parser.add_argument("--reg_rate", dest='reg_rate',
+    parser.add_argument("--reg-rate", dest='reg_rate',
                         type=float, default=0.01)
 
     # parse args
